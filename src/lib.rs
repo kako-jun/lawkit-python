@@ -370,6 +370,6 @@ fn law_py(
 #[pymodule]
 fn lawkit_python(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(law_py, m)?)?;
-    m.add("__version__", "0.2.16")?;
+    m.add("__version__", "2.5.16")?;
     Ok(())
 }

@@ -4,7 +4,7 @@ version = "2.5.16"
 edition = "2021"
 description = "Python bindings for lawkit - statistical law analysis toolkit"
 license = "MIT"
-repository = "https://github.com/kako-jun/lawkit"
+repository = "https://github.com/kako-jun/lawkit-python"
 authors = ["kako-jun"]
 
 [lib]
@@ -13,10 +13,10 @@ crate-type = ["cdylib"]
 
 [dependencies]
 # Core lawkit functionality
-lawkit-core = { path = "../lawkit-core" }
+lawkit-core = "2.5"
 
 # PyO3 for Python bindings
-pyo3 = { version = "0.22", features = ["extension-module"] }
+pyo3 = { version = "0.22", features = ["extension-module", "generate-import-lib"] }
 
 # Serialization
 serde = { version = "1.0", features = ["derive"] }
