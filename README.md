@@ -1,11 +1,11 @@
-# lawkit-python
+# lawkit
 
 Python wrapper for the `lawkit` CLI tool - Statistical law analysis toolkit for fraud detection and data quality assessment.
 
 ## Installation
 
 ```bash
-pip install lawkit-python
+pip install lawkit
 ```
 
 This includes the `lawkit` binary embedded in the wheel - no download required.
@@ -68,7 +68,7 @@ print(f"80/20 concentration: {pareto_result.concentration_80_20}")
 
 ```bash
 # Install and use immediately - binary included automatically
-pip install lawkit-python
+pip install lawkit
 
 # Use lawkit CLI directly through Python module
 python -m lawkit benf financial_data.csv
@@ -276,7 +276,7 @@ pareto_result = run_pareto_analysis("sales.csv", gini_coefficient=True)
 ### Automatic Installation (Recommended)
 
 ```bash
-pip install lawkit-python
+pip install lawkit
 ```
 
 The binary is pre-embedded in the wheel for your platform.
