@@ -13,7 +13,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 # Core lawkit functionality
-lawkit-core = "2.5"
+lawkit-core = "2.6"
 
 # PyO3 for Python bindings
 pyo3 = { version = "0.22", features = ["extension-module", "generate-import-lib"] }
