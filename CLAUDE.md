@@ -17,8 +17,8 @@ pip package                   ←  maturinでwheelを生成
 ```
 lawkit-python/
 ├── src/lib.rs              # PyO3バインディング実装
-├── src/lawkit_python/      # Pythonモジュール
-│   └── __init__.py         # re-export + ユーティリティ関数
+├── python/lawkit/          # Pythonモジュール
+│   └── __init__.py         # re-export from ._lawkit
 ├── Cargo.toml              # lawkit-core依存（crates.io版）
 ├── pyproject.toml          # maturin設定 + pytest設定
 ├── tests/                  # pytestテスト
@@ -71,9 +71,9 @@ uv run pre-commit run --all-files
 
 1. `pyproject.toml`、`Cargo.toml`、`src/lib.rs`のバージョンを更新
 2. コミット & プッシュ
-3. `git tag v2.5.16 && git push origin v2.5.16`
+3. `git tag v2.6.0 && git push origin v2.6.0`
 4. GitHub Actionsがビルド → Release作成 → wheelを添付
-5. `pip install lawkit-python`（PyPIから）または wheelから直接インストール
+5. `pip install lawkit`（PyPIから）または wheelから直接インストール
 
 ## API
 

@@ -1,6 +1,6 @@
 [package]
 name = "lawkit-python"
-version = "2.5.16"
+version = "2.6.0"
 edition = "2021"
 description = "Python bindings for lawkit - statistical law analysis toolkit"
 license = "MIT"
@@ -8,7 +8,7 @@ repository = "https://github.com/kako-jun/lawkit-python"
 authors = ["kako-jun"]
 
 [lib]
-name = "lawkit_python"
+name = "_lawkit"
 crate-type = ["cdylib"]
 
 [dependencies]

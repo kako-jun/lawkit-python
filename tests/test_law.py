@@ -6,21 +6,21 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 try:
-    import lawkit_python
+    import lawkit
 except ImportError:
-    pytest.skip("lawkit_python module not built", allow_module_level=True)
+    pytest.skip("lawkit module not built", allow_module_level=True)
 
 
 class TestBasicAPI:
     """Test basic law() function"""
 
     def test_law_function_exists(self):
-        assert hasattr(lawkit_python, "law")
-        assert callable(lawkit_python.law)
+        assert hasattr(lawkit, "law")
+        assert callable(lawkit.law)
 
     def test_returns_list(self):
         data = [123, 234, 345, 456, 567, 678, 789, 890, 901]
-        results = lawkit_python.law("validate", data)
+        results = lawkit.law("validate", data)
         assert isinstance(results, list)
 
 
@@ -33,7 +33,7 @@ class TestBenfordAnalysis:
             412, 523, 634, 745, 856, 967, 1234, 2345, 3456
         ]
 
-        results = lawkit_python.law("benford", data)
+        results = lawkit.law("benford", data)
 
         assert len(results) == 1
         result = results[0]
@@ -54,7 +54,7 @@ class TestParetoAnalysis:
             1000, 900, 800, 700, 600, 500, 400, 300, 200, 100
         ]
 
-        results = lawkit_python.law("pareto", data)
+        results = lawkit.law("pareto", data)
 
         assert len(results) == 1
         result = results[0]
@@ -70,7 +70,7 @@ class TestZipfAnalysis:
     def test_zipf_analysis(self):
         data = [1000, 500, 333, 250, 200, 167, 143, 125, 111, 100]
 
-        results = lawkit_python.law("zipf", data)
+        results = lawkit.law("zipf", data)
 
         assert len(results) == 1
         result = results[0]
@@ -88,7 +88,7 @@ class TestNormalAnalysis:
             101, 100, 99, 100, 101, 98, 102, 100, 99, 101
         ]
 
-        results = lawkit_python.law("normal", data)
+        results = lawkit.law("normal", data)
 
         assert len(results) == 1
         result = results[0]
@@ -105,7 +105,7 @@ class TestPoissonAnalysis:
     def test_poisson_analysis(self):
         data = [0, 1, 2, 1, 3, 0, 2, 1, 4, 2, 1, 0, 3, 2, 1, 5, 0, 2, 1, 3]
 
-        results = lawkit_python.law("poisson", data)
+        results = lawkit.law("poisson", data)
 
         assert len(results) == 1
         result = results[0]
@@ -120,7 +120,7 @@ class TestValidation:
     def test_validation(self):
         data = [123, 234, 345, 456, 567, 678, 789, 890, 901]
 
-        results = lawkit_python.law("validate", data)
+        results = lawkit.law("validate", data)
 
         assert len(results) == 1
         result = results[0]
@@ -135,14 +135,14 @@ class TestOptions:
     def test_confidence_level_option(self):
         data = [123, 234, 345, 456, 567, 678, 789, 890, 901]
 
-        results = lawkit_python.law("benford", data, confidence_level=0.99)
+        results = lawkit.law("benford", data, confidence_level=0.99)
 
         assert len(results) == 1
 
     def test_risk_threshold_option(self):
         data = [123, 234, 345, 456, 567, 678, 789, 890, 901]
 
-        results = lawkit_python.law("benford", data, risk_threshold="high")
+        results = lawkit.law("benford", data, risk_threshold="high")
 
         assert len(results) == 1
 
@@ -152,11 +152,11 @@ class TestErrorHandling:
 
     def test_unknown_subcommand(self):
         with pytest.raises(Exception):
-            lawkit_python.law("unknown", [1, 2, 3])
+            lawkit.law("unknown", [1, 2, 3])
 
     def test_empty_data(self):
         with pytest.raises(Exception):
-            lawkit_python.law("benford", [])
+            lawkit.law("benford", [])
 
 
 if __name__ == "__main__":

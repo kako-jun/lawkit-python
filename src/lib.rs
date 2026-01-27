@@ -368,8 +368,8 @@ fn law_py(
 
 /// A Python module for statistical law analysis toolkit
 #[pymodule]
-fn lawkit_python(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn _lawkit(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(law_py, m)?)?;
-    m.add("__version__", "2.5.16")?;
+    m.add("__version__", "2.6.0")?;
     Ok(())
 }
