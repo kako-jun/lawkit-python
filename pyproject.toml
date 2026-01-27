@@ -3,7 +3,7 @@ requires = ["maturin>=1.0,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "lawkit-python"
+name = "lawkit"
 version = "2.5.16"
 description = "Python bindings for lawkit - statistical law analysis toolkit for fraud detection, data quality assessment, and audit compliance. Powered by Rust for blazing fast performance."
 readme = "README.md"
